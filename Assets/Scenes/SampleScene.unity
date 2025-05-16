@@ -418,20 +418,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
   m_PrefabInstance: {fileID: 1286481308}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &462598574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462598573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73d7bb0e06d286045bbdcef3c1ec059a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  target: {fileID: 48717345}
 --- !u!4 &462598577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4058866896921748, guid: f10c394033f254647873f3d28a75a062, type: 3}
@@ -498,6 +484,89 @@ MonoBehaviour:
   flat:
     upForce: 2
     hitForce: 19
+--- !u!114 &462598583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462598573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769926acb57467e45b52dd9da86d732e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  speed: 3
+  ball: {fileID: 617794085}
+  target: {fileID: 48717345}
+  hitForce: 10
+  upForce: 6
+--- !u!114 &462598584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462598573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 12
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 3
+      BranchSizes: 
+    VectorActionSize: 03000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 1
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 1
+  m_BehaviorName: TennisPlayer
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_DeterministicInference: 0
+  m_ObservableAttributeHandling: 0
+--- !u!114 &462598585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462598573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 0
+      BranchSizes: 01000000
+    VectorActionSize: 01000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: TennisPlayer
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_DeterministicInference: 0
+  m_ObservableAttributeHandling: 0
 --- !u!1 &462837306
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,8 +805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcee4586f635d64991e675245e3b1b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bot: {fileID: 663516679}
-  player: {fileID: 462598574}
 --- !u!114 &617794088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,8 +817,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc186bc211ec6614d82f7446196a338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballScript: {fileID: 617794087}
+  scorePlayer: {fileID: 748148518}
   scorePlayer1: {fileID: 1865252410}
-  scorePlayer2: {fileID: 748148518}
+  PlayerAgent: {fileID: 462598583}
+  Player1Agent: {fileID: 663516680}
 --- !u!1001 &623485706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -940,7 +1010,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4058866896921748, guid: f10c394033f254647873f3d28a75a062, type: 3}
   m_PrefabInstance: {fileID: 1480284323}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &663516679
+--- !u!114 &663516680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -949,12 +1019,67 @@ MonoBehaviour:
   m_GameObject: {fileID: 663516672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ef7742a7183ad14aa7b7ee7c84294b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 769926acb57467e45b52dd9da86d732e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  speed: 3
   ball: {fileID: 617794085}
   target: {fileID: 1949881053}
-  eBot: 0
+  hitForce: 10
+  upForce: 6
+--- !u!114 &663516681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663516672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 12
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 3
+      BranchSizes: 
+    VectorActionSize: 03000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 1
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 1
+  m_BehaviorName: TennisPlayer
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_DeterministicInference: 0
+  m_ObservableAttributeHandling: 0
+--- !u!114 &663516684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663516672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c561b84523ee2b54dadc9562e5a6ace0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topSpin:
+    upForce: 4
+    hitForce: 13
+  flat:
+    upForce: 2
+    hitForce: 19
 --- !u!1 &670946335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,9 +2636,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 462598574}
-    - targetCorrespondingSourceObject: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 462598580}
     - targetCorrespondingSourceObject: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
       insertIndex: -1
@@ -2521,6 +2643,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
       insertIndex: -1
       addedObject: {fileID: 462598582}
+    - targetCorrespondingSourceObject: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 462598584}
+    - targetCorrespondingSourceObject: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 462598583}
+    - targetCorrespondingSourceObject: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 462598585}
   m_SourcePrefab: {fileID: 100100000, guid: f10c394033f254647873f3d28a75a062, type: 3}
 --- !u!1 &1295390689
 GameObject:
@@ -2651,7 +2782,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
       propertyPath: m_Name
-      value: bot
+      value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
       propertyPath: m_TagString
@@ -2726,14 +2857,51 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 663516684}
+    - targetCorrespondingSourceObject: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 663516674}
     - targetCorrespondingSourceObject: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
       insertIndex: -1
       addedObject: {fileID: 663516673}
     - targetCorrespondingSourceObject: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 663516679}
+      addedObject: {fileID: 663516681}
+    - targetCorrespondingSourceObject: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 663516680}
   m_SourcePrefab: {fileID: 100100000, guid: f10c394033f254647873f3d28a75a062, type: 3}
+--- !u!1 &1488036791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1488036792}
+  m_Layer: 0
+  m_Name: Academy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1488036792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488036791}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.76535, y: 0.37756, z: 17.11386}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1498520745
 GameObject:
   m_ObjectHideFlags: 0
@@ -3337,3 +3505,4 @@ SceneRoots:
   - {fileID: 694026621}
   - {fileID: 144566685}
   - {fileID: 2067135549}
+  - {fileID: 1488036792}

@@ -1,0 +1,47 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1747430471",
+        "python_version": "3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\mltennisenv310\\Scripts\\mlagents-learn Assets/Alemele/Config/tennis.yaml --run-id=tennis_training2",
+        "mlagents_version": "0.28.0",
+        "mlagents_envs_version": "0.28.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.11.0+cpu",
+        "numpy_version": "1.23.5",
+        "end_time_seconds": "1747430527"
+    },
+    "total": 56.009038699790835,
+    "count": 1,
+    "self": 0.0035112998448312283,
+    "children": {
+        "run_training.setup": {
+            "total": 0.045259299920871854,
+            "count": 1,
+            "self": 0.045259299920871854
+        },
+        "TrainerController.start_learning": {
+            "total": 55.96026810002513,
+            "count": 1,
+            "self": 0.0002824000548571348,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 55.95997789991088,
+                    "count": 1,
+                    "self": 55.95997789991088
+                },
+                "trainer_threads": {
+                    "total": 7.00121745467186e-07,
+                    "count": 1,
+                    "self": 7.00121745467186e-07
+                },
+                "TrainerController._save_models": {
+                    "total": 7.0999376475811005e-06,
+                    "count": 1,
+                    "self": 7.0999376475811005e-06
+                }
+            }
+        }
+    }
+}
